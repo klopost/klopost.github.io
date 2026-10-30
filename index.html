@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Klopost 💩📬 – Post vom Thron</title>
+<meta name="description" content="Klopost – Post vom Thron: Melde, wenn du scheißen warst – deine Freunde kriegen sofort eine Push-Nachricht.">
+<meta name="theme-color" content="#FFD23F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Klopost">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="app.css?v=6">
+</head>
+<body>
+<div id="splash" role="status" aria-live="polite" aria-label="Klopost wird geladen">
+  <div class="sp-inner">
+    <img class="sp-logo" src="icons/logo.svg" alt="Klopost-Logo" width="168" height="168">
+    <h1 class="fred sp-title">Willkommen bei Klo<span>post</span>!</h1>
+    <p class="sp-sub" id="sp-sub">Bitte Platz nehmen – der Thron wird vorgewärmt 🧻</p>
+    <div class="sp-bar" aria-hidden="true"><div class="sp-fill"></div><div class="sp-poop">💩</div></div>
+    <p class="sp-pct" id="sp-pct">0 %</p>
+  </div>
+</div>
+<script>
+/* Ladebildschirm: genau 5 s bei jedem frischen App-Start; Tests setzen window.KT_NOSPLASH */
+(function () {
+  var el = document.getElementById("splash");
+  if (window.KT_NOSPLASH || /[?&]nosplash\b/.test(location.search)) { el.remove(); return; }
+  var subs = ["Bitte Platz nehmen – der Thron wird vorgewärmt 🧻", "Klopapier wird abgerollt … 🧻", "Spülung wird gespannt … 🚽", "Presswehen werden kalibriert … 💪", "Deine Freunde warten schon auf Post 📬"];
+  var sub = document.getElementById("sp-sub"), pct = document.getElementById("sp-pct");
+  sub.textContent = subs[Math.floor(Math.random() * subs.length)];
+  document.documentElement.classList.add("splashing");
+  var D = 5000, t0 = performance.now();
+  function tick(now) {
+    var f = Math.min(1, (now - t0) / D);
+    el.style.setProperty("--p", f); pct.textContent = Math.round(f * 100) + " %";
+    if (f < 1) return requestAnimationFrame(tick);
+    el.classList.add("sp-done"); document.documentElement.classList.remove("splashing");
+    setTimeout(function () { el.remove(); }, 450);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<div id="app"><div class="boot"><div class="boot-poop">💩</div><p>Klo wird vorgewärmt …</p></div></div>
+<div id="toasts"></div>
+<div id="fx"></div>
+<script src="config.js?v=6"></script>
+<script src="vendor/supabase.js"></script>
+<script src="app.js?v=6"></script>
+</body>
+</html>

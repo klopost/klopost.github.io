@@ -1,0 +1,24 @@
+:root{--ink:#3B2416;--ink2:#7A5A44;--bg:#FFF6E9;--yellow:#FFD23F;--pink:#FF5D8F;--mint:#3DDC97;--sky:#4CC9F0}
+*{box-sizing:border-box}
+html,body{margin:0;color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-weight:500;line-height:1.6}
+body{background:var(--bg) linear-gradient(rgba(76,201,240,.13) 2px,transparent 2px) 0 0/44px 44px,linear-gradient(90deg,rgba(76,201,240,.13) 2px,transparent 2px) 0 0/44px 44px}
+.fred,h1,h2,h3{font-family:Fredoka,Nunito,sans-serif;line-height:1.25}
+a{color:var(--ink);text-decoration-color:var(--pink);text-decoration-thickness:2px}
+.lh{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 16px calc(10px);padding-top:max(10px,env(safe-area-inset-top));background:var(--yellow);border-bottom:3px solid var(--ink)}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:24px;font-weight:700}.home b{color:var(--pink)}
+.back{font-weight:800;text-decoration:none;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:6px 12px;box-shadow:3px 3px 0 var(--ink)}
+.lm{max-width:760px;margin:22px auto;background:#fff;border:3px solid var(--ink);border-radius:22px;box-shadow:5px 5px 0 var(--ink);padding:22px 22px 30px}
+.lm h1{margin:0 0 2px;font-size:30px}.stand{margin:0 0 18px;color:var(--ink2);font-size:14px}
+.lm h2{margin:28px 0 8px;font-size:22px}.lm h3{margin:18px 0 6px;font-size:17px}
+.lm ul,.lm ol{padding-left:22px}.lm li{margin:4px 0}
+.tldr{background:#FFF3B8;border:3px dashed var(--ink);border-radius:18px;padding:12px 18px}
+.tldr h2{margin-top:6px}
+.addr{background:#F7F1E8;border-radius:14px;padding:10px 14px}
+mark.ph{background:#FFE14D;border:2px dashed #C21F4F;border-radius:6px;padding:0 4px;color:#7A0F2C;font-weight:800}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+.tbl th,.tbl td{border:2px solid #3b241633;padding:7px 8px;vertical-align:top;text-align:left}.tbl th{background:#B8F2E6}
+code{background:#F7F1E8;border-radius:6px;padding:1px 5px}
+.rules{list-style:none;padding-left:0}
+.lf{text-align:center;padding:4px 16px 40px;font-size:14px;color:var(--ink2)}
+.lf nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:6px;font-weight:800}
+@media (max-width:560px){.lm{margin:14px 10px;padding:16px 16px 24px}.lm h1{font-size:25px}.tbl{font-size:13px}}
